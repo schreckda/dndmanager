@@ -1,5 +1,9 @@
 class CharactersController < ApplicationController
 
+  def index
+    @characters = Character.all
+  end
+
   def show
     @character = Character.find(params[:id])
   end
@@ -16,7 +20,7 @@ class CharactersController < ApplicationController
 
   private
   def character_params
-    params.require(:character).permit(:name, :race)
+    params.require(:character).permit(:characterName, :characterRace, :characterClass)
   end
 
 end

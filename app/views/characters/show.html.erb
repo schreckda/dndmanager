@@ -1,9 +1,17 @@
 <p>
   <strong>Name:</strong>
-  <%= @character.name %>
+  <%= @character.characterName %>
 </p>
 
 <p>
   <strong>Race:</strong>
-  <%= @character.race %>
+  <%= @character.characterRace %>
 </p>
+
+<p>
+  <strong>Class:</strong>
+  <%= @character.characterClass %>
+</p>
+
+<%= link_to 'all characters', characters_path %><br>
+<%= link_to 'home', controller: 'welcome' %>
