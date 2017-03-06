@@ -1,6 +1,19 @@
 <h1>Create New Character</h1>
 
 <%= form_for :character, url: characters_path do |f| %>
+
+    <% if @character.errors.any %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@character.error.count, "error") %> There was en error saving the character.
+          </h2>
+          <ul>
+            <% @character.error.full_messages.each do |msg| %>
+                <li><%= msg %> </li>
+                </ul>
+            <% end %>git
+            </div>
+    <% end %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :characterName %>
@@ -8,12 +21,12 @@
 
     <p>
       <%= f.label :race %><br>
-      <%= f.select :characterRace, ['', 'Dragonborn', 'Drawf', 'Elf', 'Gnome', 'Halfling']%>
+      <%= f.select :characterRace, ['', 'Dragonborn', 'Drawf', 'Elf', 'Gnome', 'Halfling'] %>
     </p>
 
     <p>
       <%= f.label :class %><br>
-      <%= f.select :characterClass, ['', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']%>
+      <%= f.select :characterClass, ['', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'] %>
     </p>
 
     <p>
