@@ -1,19 +1,19 @@
-<h1>Create New Character</h1>
-
-<%= form_for :character, url: characters_path do |f| %>
+<h1>Editing Character</h1>
+<%= form_for :character, url: character_path(@character), method: :patch do |f| %>
 
     <% if @character.errors.any? %>
         <div id="error_explanation">
           <h2>
-            <%= pluralize(@character.error.count, "error") %> There was en error saving the character.
+            <%= pluralize(@character.errors.count, "error") %> There was an error saving the character.
           </h2>
           <ul>
-            <% @character.error.full_messages.each do |msg| %>
-                <li><%= msg %> </li>
-                </ul>
-            <% end %>git
-            </div>
+            <% @character.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
     <% end %>
+
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :characterName %>
@@ -32,6 +32,7 @@
     <p>
       <%= f.submit %>
     </p>
+
 <% end %>
 
 <%= link_to 'all characters', characters_path %><br>

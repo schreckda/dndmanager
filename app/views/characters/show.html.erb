@@ -13,5 +13,6 @@
   <%= @character.characterClass %>
 </p>
 
+<%= link_to 'Edit', edit_character_path(@character) %> <br>
 <%= link_to 'all characters', characters_path %><br>
 <%= link_to 'home', controller: 'welcome' %>
