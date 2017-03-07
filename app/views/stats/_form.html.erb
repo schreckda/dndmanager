@@ -1,0 +1,29 @@
+<%= form_for ([@character, @character.stats.build]) do |f| %>
+    <p>
+      <%= f.label :strength %><br>
+      <%= f.text_field :strength %>
+    </p>
+    <p>
+      <%= f.label :dexterity %><br>
+      <%= f.text_field :dexterity %>
+    </p>
+    <p>
+      <%= f.label :constitution %><br>
+      <%= f.text_field :constitution %>
+    </p>
+    <p>
+      <%= f.label :intelligence %><br>
+      <%= f.text_field :intelligence %>
+    </p>
+    <p>
+      <%= f.label :wisdom %><br>
+      <%= f.text_field :wisdom %>
+    </p>
+    <p>
+      <%= f.label :charisma %><br>
+      <%= f.text_field :charisma %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

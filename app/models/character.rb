@@ -1,8 +1,6 @@
 class Character < ApplicationRecord
 
-  has_many :stats
+  has_many :stats, dependent: :destroy
 
   validates :characterName, presence: true, length: {minimum: 3}
-  validates :characterClass, presence: true
-  validates :characterRace, presence:  true
 end

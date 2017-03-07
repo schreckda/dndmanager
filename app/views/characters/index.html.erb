@@ -9,8 +9,6 @@
   <% @characters.each do |character| %>
       <tr>
         <td><%= character.characterName %></td>
-        <td><%= character.characterRace %></td>
-        <td><%= character.characterClass %></td>
         <td><%= link_to 'Show', character_path(character) %> </td>
         <td><%= link_to 'Edit', edit_character_path(character) %></td>
         <td><%= link_to 'Delete', character_path(character), method: :delete, data: {confirm: 'Are you sure?'} %></td>
@@ -18,6 +16,5 @@
   <% end %>
 </table><br>
 
-<%= link_to 'all characters', characters_path %><br>
 <%= link_to 'create character', new_character_path %><br>
 <%= link_to 'home', controller: 'welcome' %>
