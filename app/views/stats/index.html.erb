@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Strength</th>
+      <th>Dexterity</th>
+      <th>Constitution</th>
+      <th>Intelligence</th>
+      <th>Wisdom</th>
+      <th>Charisma</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stats.each do |stat| %>
+      <tr>
+        <td><%= stat.strength %></td>
+        <td><%= stat.dexterity %></td>
+        <td><%= stat.constitution %></td>
+        <td><%= stat.intelligence %></td>
+        <td><%= stat.wisdom %></td>
+        <td><%= stat.charisma %></td>
+        <td><%= link_to 'Show', [stat.character, stat] %></td>
+        <td><%= link_to 'Edit', edit_character_stat_path(stat.character, stat) %></td>
+        <td><%= link_to 'Destroy', [stat.character, stat], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stat', new_character_stat_path %> |
+<%= link_to 'Characters', characters_path %>

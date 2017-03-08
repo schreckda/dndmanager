@@ -1,6 +1,6 @@
 <h1>Editing Character</h1>
 
-<%= render 'form' %>
+<%= render 'form', character: @character %>
 
-<%= link_to 'all characters', characters_path %><br>
-<%= link_to 'home', controller: 'welcome' %>
+<%= link_to 'Show', @character %> |
+<%= link_to 'Back', character_path %>

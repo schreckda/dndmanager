@@ -1,22 +1,33 @@
-<%= form_for @character do |f| %>
+<%= form_for(character) do |f| %>
+  <% if character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
 
-    <% if @character.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@character.error.count, "error") %> There was an error saving the character.
-          </h2>
-          <ul>
-            <% @character.error.full_messages.each do |msg| %>
-                <li><%= msg %> </li>
-                </ul>
-            <% end %>git
-            </div>
-    <% end %>
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :characterName %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+      <ul>
+      <% character.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alignment %>
+    <%= f.select :alignment_lr, ['', 'Lawful', 'Neutral', 'Chaotic'] %>
+    <%= f.select :alignment_ud, ['', 'Good', 'Neutral', 'Evil'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :experience %>
+    <%= f.number_field :experience %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

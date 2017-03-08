@@ -1,51 +1,76 @@
 class CharactersController < ApplicationController
+  before_action :set_character, only: [:show, :edit, :update, :destroy]
 
+  # GET /characters
+  # GET /characters.json
   def index
     @characters = Character.all
   end
 
+  # GET /characters/1
+  # GET /characters/1.json
   def show
-    @character = Character.find(params[:id])
   end
 
+  # GET /characters/new
   def new
     @character = Character.new
   end
 
+  # GET /characters/1/edit
   def edit
-    @character = Character.find(params[:id])
   end
 
+  # POST /characters
+  # POST /characters.json
   def create
     @character = Character.new(character_params)
 
-    if @character.save
-      redirect_to @character
-    else
-      render 'new'
+    @character.alignment = @character.combine_alignment(@character.alignment_lr, @character.alignment_ud)
+
+    respond_to do |format|
+      if @character.save
+        format.html { redirect_to @character, notice: 'Character was successfully created. Add your stats.' }
+        format.json { render :show, status: :created, location: @character }
+      else
+        format.html { render :new }
+        format.json { render json: @character.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # PATCH/PUT /characters/1
+  # PATCH/PUT /characters/1.json
   def update
-    @character = Character.find(params[:id])
-
-    if @character.update(character_params)
-      redirect_to @character
-    else
-      render 'edit'
+    respond_to do |format|
+      if @character.update(character_params)
+        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
+        format.json { render :show, status: :ok, location: @character }
+      else
+        format.html { render :edit }
+        format.json { render json: @character.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # DELETE /characters/1
+  # DELETE /characters/1.json
   def destroy
-    @character = Character.find(params[:id])
     @character.destroy
-
-    redirect_to characters_path
+    respond_to do |format|
+      format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
-  def character_params
-    params.require(:character).permit(:characterName)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_character
+    @character = Character.find(params[:id])
   end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def character_params
+    params.require(:character).permit(:name, :alignment_lr, :alignment_ud, :experience)
+  end
 end

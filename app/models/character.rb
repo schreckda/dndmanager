@@ -1,6 +1,10 @@
 class Character < ApplicationRecord
-
+  validates :name, :alignment, :experience, :presence => true
   has_many :stats, dependent: :destroy
 
-  validates :characterName, presence: true, length: {minimum: 3}
+  attr_accessor :alignment_lr, :alignment_ud
+
+  def combine_alignment(left_right, up_down)
+    "#{left_right} #{up_down}"
+  end
 end

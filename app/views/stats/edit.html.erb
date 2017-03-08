@@ -1,2 +1,6 @@
-<h2>Edit Stats</h2>
-<%= render 'form' %>
+<h1>Editing Stat</h1>
+
+<%= render 'form', stat: @stat %>
+
+<%= link_to 'Show', [@stat.character, @stat] %> |
+<%= link_to 'Back', character_path(@stats.character) %>
