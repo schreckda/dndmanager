@@ -26,8 +26,6 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
 
-    @character.alignment = @character.combine_alignment(@character.alignment_lr, @character.alignment_ud)
-
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created. Add your stats.' }
@@ -71,6 +69,6 @@ class CharactersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def character_params
-    params.require(:character).permit(:name, :alignment_lr, :alignment_ud, :experience)
+    params.require(:character).permit(:name, :alignment, :experience)
   end
 end
