@@ -1,0 +1,26 @@
+Race
+	raceName:string
+	baseSpeed:int
+	raceLanguages
+	raceFeatures
+	raceTraits
+	raceSpells
+	raceWeaponProficiency
+	raceSkillProficiency
+	raceToolProficiency
+	raceAbilityScores
+	raceWeight
+	raceHeight
+	raceAlignment
+RaceTrait
+	name
+	description
+Class
+	className:string
+	classFeatures
+	classArmorProficiency
+	classWeaponProficiency
+	classSkillProficiency
+	classToolProficiency
+	classSavingThrows
+	
