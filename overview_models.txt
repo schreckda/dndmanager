@@ -1,26 +1,134 @@
+#Fertig
+
 Race
-	raceName:string
-	baseSpeed:int
-	raceLanguages
-	raceFeatures
-	raceTraits
-	raceSpells
-	raceWeaponProficiency
-	raceSkillProficiency
-	raceToolProficiency
-	raceAbilityScores
-	raceWeight
-	raceHeight
-	raceAlignment
+        raceName:string
+        baseSpeed:int
+        raceLanguages:string
+        raceTraits:raceTrait
+        raceSpells:spell
+        raceWeaponProficiency
+        raceSkillProficiency
+        raceToolProficiency
+        raceAbilityScores
+        raceDescription
+            raceAlignment
+            raceFeatures
+            raceWeightInfo
+            raceHeightInfo
+            
 RaceTrait
-	name
-	description
-Class
-	className:string
-	classFeatures
-	classArmorProficiency
-	classWeaponProficiency
-	classSkillProficiency
-	classToolProficiency
-	classSavingThrows
-	
+        name
+        description
+            
+#ToDo
+
+
+Character
+        name
+        alignment
+        experience
+        characterWeight
+        characterHeight
+        has_a Race
+        has_a characterClass
+
+CharacterClass
+        className:string
+        classFeatures
+        classArmorProficiency
+        classWeaponProficiency
+        classSkillProficiency
+        classToolProficiency
+        classSavingThrows
+
+Weapon:
+        name
+        dmgType
+        dmgValue
+        weaponType
+        statModifier
+        Attack Bonus (fitting Stat Modifier (+Proficiency)
+
+
+Spell
+        name
+        spellLevel
+        spellSchool
+        castingTime
+        range
+        components
+        duration
+        dmgType
+        dmgValue
+        description
+        whoRollsDice
+        onWhatDoYouRoll
+        isRaceSpell
+        usedByClass
+        usesModifier
+        
+Spellcasting
+
+
+        
+
+        
+Class:
+    Primary Stat
+    Hit die
+    Saving Throw
+    Language
+    Trait for Proficiancies
+    Armor-Proficiancies
+    Weapon Proficiancies
+    Features:
+        for each level
+        
+Ability Scores:
+    Strength
+    Dexterity
+    Constitution
+    Intellect
+    Wisdom
+    Charisma
+4D6 drop lowest --> x6
+Pointbuy: 8=>0, 9=>1 10=>2 11=>3 12=>4 13=>5 14=>7 15=>9 (max = 15, 27 Punkte)
+Array: 15, 14, 12, 12, 10, 8
+    Modifiers:
+        For each 2 Points over 10 --> +1 Modifier
+        For each 2 Points under 10 --> -1 Modifier
+
+Background:
+    Story
+    Proficiancies
+    Ideal, bond, flaws etc (not mechanical)
+    feature
+    could be rolled or chosen
+
+Saving Throws
+    Equal to Ability Modifiers
+    Bonus for Proficiencies in Marked Stats
+
+Skills:
+    Equal to Ability Modifiers
+    Bonus for Proficiencies in Marked Stats
+
+
+
+Armor:
+    Armor Rating + Dex Modifier
+    Light Armor = full bonus
+    Medium Armor = +2 Bonus max
+    Heavy Armor = no Bonus
+    
+Initiative:
+    Dex Modifier
+Passive Wisdom:
+    10+Wisdom Modifier
+Hitpoints:
+    Changes with Class (Hit die + Constitution Modifier)
+Languages:
+    Common + Intelligence Modifier
+
+
+        
